@@ -10,6 +10,7 @@
         <script src="https://cdn.jsdelivr.net/npm/marked/marked.min.js"></script>
         <style>
             body { max-width: 800px; margin: 0 auto; padding: 2rem; }
+            
             #chat-box { 
                 border: 1px solid #e0e0e0; 
                 padding: 20px; 
@@ -20,6 +21,18 @@
                 line-height: 1.6;
             }
             .loading { color: #888; font-style: italic; }
+
+            /* 覆盖 Pico.css 对 input 的默认固定高度 */
+            #prompt {
+                height: auto; 
+            }
+            
+            /* 调整输入框和按钮的圆角和阴影 */
+            fieldset[role="group"] {
+                box-shadow: 0 4px 6px rgba(0,0,0,0.05);
+                border-radius: 8px;
+                overflow: hidden; /* 保证按钮和输入框完美贴合 */
+            }
         </style>
     </head>
     <body>
