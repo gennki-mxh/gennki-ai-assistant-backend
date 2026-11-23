@@ -65,7 +65,7 @@ pip install flask flask-cors requests
 $env:DEEPSEEK_API_KEY="sk-你的真实API密钥"
 ```
 
-macOS/Linux:
+*macOS/Linux:*
 
 ```bash
 export DEEPSEEK_API_KEY="sk-你的真实API密钥"
@@ -127,4 +127,4 @@ git remote add origin https://github.com/gennki-mxh/gennki-ai-assistant-backend
 git push -u origin main
 ```
 
-Created by [GennKi](https://gennki-mxh.github.io/)
+***Created by [GennKi](https://gennki-mxh.github.io/)***
