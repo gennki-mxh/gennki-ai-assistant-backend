@@ -36,6 +36,13 @@
                 border-radius: 8px;
                 overflow: hidden; /* 保证按钮和输入框完美贴合 */
             }
+            
+            /* 覆盖 Pico.css 对 button 的挤压 */
+            fieldset[role="group"] > button {
+                white-space: nowrap;
+                flex-shrink: 0;
+            }
+
         </style>
     </head>
     <body>
@@ -74,7 +81,7 @@
                     
                     if (data.status === 'success') {
                         // 使用 marked 渲染 Markdown 格式
-                        box.innerHTML = marked.parse(data.data.reply);
+                        box.innerHTML = DOMPurify.sanitize(marked.parse(data.data.reply));
                     } else {
                         box.innerHTML = `<span style="color: red;">报错啦：${data.msg}</span>`;
                     }
