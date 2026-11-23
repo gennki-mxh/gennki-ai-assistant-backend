@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+    <html lang="zh-CN">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>GennKi's AI Assistant</title>
+        <!-- 引入 Pico.css 极简框架，一行代码让界面变高级 -->
+        <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@picocss/pico@2/css/pico.min.css">
+        <!-- 引入 marked.js 渲染 Markdown -->
+        <script src="https://cdn.jsdelivr.net/npm/marked/marked.min.js"></script>
+        <style>
+            body { max-width: 800px; margin: 0 auto; padding: 2rem; }
+            #chat-box { 
+                border: 1px solid #e0e0e0; 
+                padding: 20px; 
+                border-radius: 8px; 
+                min-height: 150px; 
+                background: #ffffff;
+                box-shadow: 0 4px 6px rgba(0,0,0,0.05);
+                line-height: 1.6;
+            }
+            .loading { color: #888; font-style: italic; }
+        </style>
+    </head>
+    <body>
+        <hgroup>
+            <h2>🤖 GennKi 的专属 AI 助手</h2>
+            <p>基于 Flask + DeepSeek API 打造的最小闭环演示</p>
+        </hgroup>
+        
+        <form onsubmit="event.preventDefault(); sendPrompt();">
+            <fieldset role="group">
+                <input type="text" id="prompt" placeholder="输入你想问大模型的话..." required>
+                <button type="submit">发送</button>
+            </fieldset>
+        </form>
+
+        <article id="chat-box" style="background-color: #f8f9fa;">等待提问...</article>
+
+        <script>
+            async function sendPrompt() {
+                const promptInput = document.getElementById('prompt');
+                const box = document.getElementById('chat-box');
+                const text = promptInput.value.trim();
+                if (!text) return;
+
+                box.innerHTML = "<span class='loading'>DeepSeek 正在思考中...</span>";
+                promptInput.value = ''; // 清空输入框
+
+                try {
+                    const res = await fetch('/api/chat', {
+                        method: 'POST',
+                        headers: { 'Content-Type': 'application/json' },
+                        body: JSON.stringify({ prompt: text })
+                    });
+                    const data = await res.json();
+                    
+                    if (data.status === 'success') {
+                        // 使用 marked 渲染 Markdown 格式
+                        box.innerHTML = marked.parse(data.data.reply);
+                    } else {
+                        box.innerHTML = `<span style="color: red;">报错啦：${data.msg}</span>`;
+                    }
+                } catch (error) {
+                    box.innerHTML = `<span style="color: red;">网络异常，请检查后端是否运行。</span>`;
+                }
+            }
+        </script>
+    </body>
+    </html>
