@@ -6,8 +6,11 @@
         <title>GennKi's AI Assistant</title>
         <!-- 引入 Pico.css 极简框架，一行代码让界面变高级 -->
         <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@picocss/pico@2/css/pico.min.css">
-        <!-- 引入 marked.js 渲染 Markdown -->
-        <script src="https://cdn.jsdelivr.net/npm/marked/marked.min.js"></script>
+        <!-- 引入并本地化 marked.js，渲染 Markdown -->
+        <script src="{{ url_for('static', filename='js/marked.min.js') }}"></script>
+        <!-- 引入并本地化 purify.min.js，净化 DOM 输出 -->
+        <script src="{{ url_for('static', filename='js/purify.min.js') }}"></script>
+
         <style>
             body { max-width: 800px; margin: 0 auto; padding: 2rem; }
             
