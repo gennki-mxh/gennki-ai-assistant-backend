@@ -1,10 +1,8 @@
 from flask import Flask, request, jsonify, render_template
-from flask_cors import CORS
 import requests
 import os
 
 app = Flask(__name__)
-CORS(app)  # 本地前后端分离调试用；同源部署时可去掉
 
 DEEPSEEK_API_KEY = os.environ.get("DEEPSEEK_API_KEY", "")
 DEEPSEEK_API_URL = "https://api.deepseek.com/chat/completions"

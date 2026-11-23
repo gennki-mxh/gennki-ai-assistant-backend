@@ -1,0 +1,4 @@
+# 依赖清单：依据 app.py 中的 import 语句生成
+# 安装：pip install -r requirements.txt
+Flask>=3.0,<4.0
+requests>=2.31,<3.0
