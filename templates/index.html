@@ -58,6 +58,7 @@
                 if (!text) return;
 
                 box.innerHTML = "<span class='loading'>DeepSeek 正在思考中...</span>";
+
                 promptInput.value = ''; // 清空输入框
 
                 try {
@@ -75,6 +76,7 @@
                         box.innerHTML = `<span style="color: red;">报错啦：${data.msg}</span>`;
                     }
                 } catch (error) {
+                    console.error('请求失败:', error);
                     box.innerHTML = `<span style="color: red;">网络异常，请检查后端是否运行。</span>`;
                 }
             }
