@@ -13,7 +13,6 @@ TIMEOUT = 30
 MAX_PROMPT_LEN = 2000
 SYSTEM_PROMPT = "你是一个简洁的助手，回答控制在 300 字以内。"
 
-
 @app.route('/')
 def index():
     return render_template('index.html')
@@ -70,4 +69,4 @@ def chat():
 
 
 if __name__ == '__main__':
-    app.run(debug=True, port=5000)
+    app.run(debug=True, port=5000)  # debug 仅本地开发
