@@ -2,7 +2,7 @@
 
 基于 Flask 与 DeepSeek Chat API 的最小闭环演示：一个页面、一个接口，打通往返链路——前端输入 → 后端校验与转发 → 大模型回复 → Markdown 渲染上屏。
 
-![界面截图](docs\screenshot.png)
+![界面截图](docs/screenshot.png)
 
 ## 功能
 
