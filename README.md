@@ -69,15 +69,11 @@ pip install -r requirements.txt
 
 需要一个 DeepSeek API Key（[platform.deepseek.com](https://platform.deepseek.com) 获取）。
 
-```powershell
-$env:DEEPSEEK_API_KEY="sk-你的密钥"
-```
-
 ```bash
-export DEEPSEEK_API_KEY="sk-你的密钥"
+cp .env.example .env    # 然后填入你的密钥
 ```
 
-> PowerShell 的 `$env:` 仅对当前窗口生效，重开终端需重新设置。密钥不入库，`.gitignore` 已排除 `.env`。
+> 密钥不入库，`.gitignore` 已排除 `.env`。
 
 **5. 启动**
 

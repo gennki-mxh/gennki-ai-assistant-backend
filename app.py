@@ -1,6 +1,9 @@
 from flask import Flask, request, jsonify, render_template
+from dotenv import load_dotenv
 import requests
 import os
+
+load_dotenv()   # 必须在读取环境变量之前
 
 app = Flask(__name__)
 
