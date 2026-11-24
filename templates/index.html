@@ -42,7 +42,24 @@
                 white-space: nowrap;
                 flex-shrink: 0;
             }
+            
+            /* 回复框内背景和字体颜色单独控制 */
+            #chat-box {
+                background: #f8f9fa;
+                color: #232629;
+            }
 
+            #chat-box p, pre , ul, h1, h2, h3, h4, h5 {
+                color: #232629
+            }
+            
+            /* 页面标题颜色单独控制 */
+            hgroup h2 {color: #e0e3e7;}
+
+            /* 聊天框内的 Markdown 标题不要用页面级字号 */
+            #chat-box h1 { font-size: 1.5rem; margin-bottom: 0.6rem; }
+            #chat-box h2 { font-size: 1.25rem; margin-bottom: 0.5rem; }
+            #chat-box h3 { font-size: 1.05rem; }
         </style>
     </head>
     <body>
